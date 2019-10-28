@@ -17,8 +17,8 @@ void func(int* sec) {
 }
 
 // params
-// first arg must be number of nThreads
-// second arg must be amount of desired seconds
+// first arg must be amount of desired seconds
+// second arg must be number of nThreads
 
 //
 int main(int argc, _TCHAR* argv[]) {
