@@ -22,17 +22,31 @@ void func(int* sec) {
 
 //
 int main(int argc, _TCHAR* argv[]) {
-int nThreads = 1; // default value
-int sec = 1;//default value
+unsigned int nThreads = 1; // default value
+unsigned int sec = 0;//default value
 
-if(argv[1]){
+#ifdef WIN32
+    SYSTEM_INFO sysinfo;
+    GetSystemInfo(&sysinfo);
+    nThreads = sysinfo.dwNumberOfProcessors;
+#endif
+
+if(argc > 1){
   stringstream s(argv[1]);
-  s >> nThreads;
-}
-if(argv[2]){
-  stringstream s(argv[2]);
   s >> sec;
 }
+else
+{
+  cout << "How many seconds to keep you warm ?" << endl;
+  cin >> sec;
+}
+
+if(argc > 2){
+  stringstream s(argv[2]);
+  s >> nThreads;
+}
+
+cout << nThreads << " threads will heat you up during " << sec << " seconds" << endl;
 
   clock_t timer;
   HANDLE* t = new HANDLE[nThreads];
