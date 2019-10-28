@@ -7,9 +7,8 @@
 using namespace std;
 
 void func(int* sec) {
-  cout << "Hello ";
-  clock_t timer;
-  timer = clock();
+  cout << "Hello\n";
+  clock_t timer = clock();
   int i = 0;
   while(clock() < (*sec)*1000){
     i++;
@@ -43,7 +42,7 @@ if(argv[2]){
       NULL,                                            //LPSECURITY_ATTRIBUTES   lpThreadAttributes,
       0,                                               //SIZE_T                  dwStackSize,
       (LPTHREAD_START_ROUTINE)func,                    //LPTHREAD_START_ROUTINE  lpStartAddress,
-      &sec,                                         //__drv_aliasesMem LPVOID lpParameter,
+      &sec,                                            //__drv_aliasesMem LPVOID lpParameter,
       0,                                               //DWORD                   dwCreationFlags,
       NULL                                             //LPDWORD                 lpThreadId
     );
