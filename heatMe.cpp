@@ -8,15 +8,7 @@ using namespace std;
 
 void parseOptions(int argc, _TCHAR* argv[]);
 
-void func(int* sec) {
-  cout << "Hello\n";
-  clock_t timer = clock();
-  int i = 0;
-  while(clock() < (*sec)*1000){
-    i++;
-    i--;
-  }
-}
+void func(int* sec);
 
 // params
 // first arg must be amount of desired seconds
@@ -83,5 +75,15 @@ void parseOptions(int argc, _TCHAR* argv[])
     {
       cerr << "Usage: " << argv[0] << " [-n NUMBEROFTHREADS] [-s NUMBEROFSECONDS]\n";
     }
+  }
+}
+
+void func(int* sec) {
+  cout << "Hello\n";
+  clock_t timer = clock();
+  int i = 0;
+  while(clock() < (*sec)*1000){
+    i++;
+    i--;
   }
 }
